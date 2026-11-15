@@ -2,13 +2,13 @@
 
 ## Abrir en Windows
 
-1. Descarga el [ZIP portátil para Windows de 64 bits](https://github.com/CodeByDante/LyricFrame/releases/download/v1.0.2/LyricFrame-Portable-Windows-x64.zip) y extráelo completo.
-2. Haz doble clic en **LyricFrame.exe**. El editor se abre en su propia ventana usando Edge o Chrome instalado en tu PC. Cierra esa ventana para salir.
+1. Descarga [LyricFrame.exe para Windows de 64 bits](https://github.com/CodeByDante/LyricFrame/releases/download/v1.0.3/LyricFrame.exe).
+2. Abre **LyricFrame.exe** con doble clic y espera a que prepare sus archivos. El editor se abre en su propia ventana usando Edge o Chrome instalado en tu PC. Cierra esa ventana para salir.
 3. Selecciona el audio, pega la letra y marca los tiempos. Elige el formato y pulsa **Generar MP4**.
 
 Puedes elegir fondo estrellado, aurora o negro, o cargar tu propia imagen o video. El editor permite cambiar la tipografía, la paleta y la animación. Usa *asteriscos* en la letra para destacar una palabra.
 
-**Rápido (FFmpeg)** usa el motor incluido en el ZIP. **HyperFrames** usa Chrome o Edge instalado en tu equipo.
+**Rápido (FFmpeg)** usa el motor incluido en el ejecutable portátil. **HyperFrames** usa Chrome o Edge instalado en tu equipo.
 
 ## Ejecutar desde el código
 
