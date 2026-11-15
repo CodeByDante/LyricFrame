@@ -1,0 +1,31 @@
+LyricFrame
+Videos con letra sincronizada
+
+Para empezar en Windows de 64 bits
+
+1. Extrae todo el ZIP a una carpeta.
+2. Abre Abrir LyricFrame.cmd. La aplicación se abre en tu navegador.
+   Si no se abre de forma automática, copia la dirección que aparece
+   en la ventana de comandos y pégala en el navegador.
+3. Deja esa ventana abierta mientras trabajas. Ciérrala para salir de la aplicación.
+
+Crear un video
+
+1. Selecciona la pista de audio. También puedes usar un MP4 con audio.
+2. Elige Vertical (9:16, 1080 × 1920) u Horizontal (16:9, 1920 × 1080).
+3. Escribe o pega una línea de letra por renglón. Importa un archivo LRC
+   si ya tienes las marcas de tiempo.
+4. Reproduce el audio y marca cada línea al momento en que debe aparecer.
+   Puedes corregir los tiempos a mano. Escribe *palabra* para destacarla.
+5. Elige fondo, tipografía, paleta y animación de entrada. Puedes
+   sustituir el fondo con una foto o un video.
+6. Revisa la vista previa y pulsa Generar MP4. El motor Rápido usa
+   FFmpeg. HyperFrames genera el video con HTML animado y usa Chrome
+   o Edge que ya tengas instalado. El tiempo de exportación depende de
+   la duración del audio y de la velocidad de la PC.
+
+El programa usa únicamente archivos locales y no requiere una conexión
+a internet para convertir. Cierra la ventana de comandos cuando termines.
+
+El ZIP incluye el código del proyecto y sus componentes portátiles.
+Consulta la carpeta licenses para ver los avisos de las bibliotecas.

@@ -1,0 +1,13 @@
+{
+  "name": "lyricframe",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "busboy": "1.6.0",
+    "hyperframes": "0.9.53"
+  }
+}

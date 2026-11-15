@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>LyricFrame · Editor de letras</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <a class="brand" href="./">
+        <span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>LyricFrame</span>
+      </a>
+      <span class="local-note"><i aria-hidden="true"></i> Edición local</span>
+    </header>
+    <div class="workspace">
+      <section class="editor" aria-labelledby="editor-title">
+        <div class="intro">
+          <h1 id="editor-title">Video con letra</h1>
+          <p>Marca cada línea al ritmo de tu canción y exporta el video.</p>
+        </div>
+
+        <section class="panel" aria-labelledby="media-title">
+          <h2 id="media-title">Audio y fondo</h2>
+          <div class="file-grid">
+            <div class="file-picker">
+              <input class="sr-only file-input" id="audio-file" type="file" accept=".mp3,.wav,.m4a,.aac,.flac,.ogg,.mp4,audio/*,video/mp4" aria-describedby="audio-name">
+              <label for="audio-file"><b>Elegir audio</b><span id="audio-name">MP3, WAV, M4A o MP4</span></label>
+            </div>
+            <div class="file-picker">
+              <input class="sr-only file-input" id="background-file" type="file" accept=".png,.jpg,.jpeg,.webp,.mp4,.mov,.webm,image/png,image/jpeg,image/webp,video/mp4,video/webm,video/quicktime" aria-describedby="background-name">
+              <label for="background-file"><b>Elegir fondo</b><span id="background-name">Imagen o video opcional</span></label>
+              <button type="button" id="clear-background" class="tiny optional-action" hidden>Quitar fondo</button>
+            </div>
+          </div>
+          <label class="title-field" for="video-title">Título en el video <span>opcional</span></label>
+          <input id="video-title" class="text-field" type="text" placeholder="Nombre de la canción" maxlength="100" autocomplete="off">
+        </section>
+
+        <section class="panel" aria-labelledby="lyrics-title">
+          <div class="panel-heading">
+            <h2 id="lyrics-title">Letra</h2>
+            <div>
+              <input class="sr-only file-input" id="lrc-file" type="file" accept=".lrc,text/plain">
+              <label class="button tiny secondary" for="lrc-file">Importar LRC</label>
+            </div>
+          </div>
+          <textarea id="lyrics-text" class="text-field lyrics-field" rows="5" placeholder="Escribe o pega una frase por línea…" aria-label="Letra de la canción" aria-describedby="lyrics-hint" spellcheck="true"></textarea>
+          <p class="help" id="lyrics-hint">Una frase por línea. Escribe <code>*palabra*</code> para aplicarle el color de énfasis.</p>
+          <p id="lyrics-status" class="message" role="status" hidden></p>
+        </section>
+
+        <section class="panel" aria-labelledby="design-title">
+          <h2 id="design-title">Diseño del video</h2>
+          <div class="design-grid">
+            <label for="background-preset">Fondo
+              <select id="background-preset" class="text-field">
+                <option value="stars">Estrellas</option>
+                <option value="aurora">Aurora</option>
+                <option value="black">Negro</option>
+              </select>
+            </label>
+            <label for="video-font">Tipografía
+              <select id="video-font" class="text-field">
+                <option value="serif">Serif</option>
+                <option value="sans">Sans</option>
+                <option value="mono">Monoespaciada</option>
+              </select>
+            </label>
+            <label for="video-animation">Animación
+              <select id="video-animation" class="text-field">
+                <option value="karaoke">Karaoke</option>
+                <option value="fade">Aparición suave</option>
+                <option value="rise">Deslizar arriba</option>
+                <option value="pop">Escala</option>
+              </select>
+            </label>
+            <label for="video-palette">Color de énfasis
+              <select id="video-palette" class="text-field">
+                <option value="gold">Dorado</option>
+                <option value="mint">Menta</option>
+                <option value="rose">Rosa</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <section class="panel sync-panel" aria-labelledby="sync-title">
+          <div class="panel-heading">
+            <h2 id="sync-title">Sincronización</h2>
+            <button type="button" id="mark-next" class="button tiny secondary" disabled>Marcar siguiente</button>
+          </div>
+          <p id="sync-help" class="help">Reproduce el audio y marca cada frase al oírla. También puedes editar los tiempos.</p>
+          <ol class="cue-list" id="cue-list" aria-label="Líneas de la letra" aria-describedby="sync-help" hidden></ol>
+          <p id="cue-empty" class="empty-note">Las líneas de tu letra aparecerán aquí.</p>
+        </section>
+      </section>
+
+      <section class="preview-panel panel" aria-labelledby="preview-title">
+        <div class="panel-heading preview-heading">
+          <h2 id="preview-title">Vista previa</h2>
+          <fieldset class="ratio-switch">
+            <legend class="sr-only">Formato del video</legend>
+            <input class="sr-only ratio-input" type="radio" name="ratio" id="ratio-vertical" value="9:16" checked>
+            <label for="ratio-vertical">9:16</label>
+            <input class="sr-only ratio-input" type="radio" name="ratio" id="ratio-horizontal" value="16:9">
+            <label for="ratio-horizontal">16:9</label>
+          </fieldset>
+        </div>
+        <div id="stage" class="video-stage" data-ratio="9:16" data-background="stars" data-font="serif" data-palette="gold">
+          <div id="stars" class="starfield" aria-hidden="true"></div>
+          <img id="preview-image" class="video-background" alt="" hidden>
+          <video id="preview-video" class="video-background" muted playsinline loop hidden></video>
+          <div id="preview-title-text" class="video-title" hidden></div>
+          <div id="preview-lyrics" class="video-lyrics"></div>
+          <canvas id="waveform" class="waveform" width="640" height="90" aria-hidden="true"></canvas>
+        </div>
+        <div class="transport">
+          <audio id="audio" preload="metadata" hidden></audio>
+          <button type="button" class="button transport-play secondary" id="play" aria-label="Reproducir" disabled>
+            <span class="play-icon" aria-hidden="true"></span>
+          </button>
+          <div class="scrub">
+            <input type="range" id="seek" min="0" max="0" step="0.01" value="0" aria-label="Posición del audio" disabled>
+            <div class="timecodes" aria-hidden="true"><span id="time-current">0:00.00</span><span id="time-total">0:00.00</span></div>
+          </div>
+        </div>
+        <p id="audio-status" class="message" role="status" hidden></p>
+        <div class="engine-row">
+          <label for="export-engine">Motor de exportación</label>
+          <select id="export-engine" class="text-field">
+            <option value="fast">Rápido (FFmpeg)</option>
+            <option value="hyperframes">HyperFrames</option>
+          </select>
+        </div>
+        <p id="engine-help" class="help" hidden>Usa Chrome o Edge instalado en tu PC.</p>
+        <div class="export-actions">
+          <button type="button" class="button primary" id="export" disabled>Generar MP4</button>
+          <button type="button" class="button secondary" id="cancel-export" hidden>Cancelar</button>
+          <a class="button primary" id="download" download hidden>Descargar MP4</a>
+        </div>
+        <progress id="export-progress" class="export-progress" aria-label="Generando MP4" hidden></progress>
+        <p id="resolution" class="help output-resolution">1080 × 1920 · MP4</p>
+        <p id="export-status" class="message" role="status" hidden></p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
