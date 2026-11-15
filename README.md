@@ -5,11 +5,11 @@
 <h3 align="center">LyricFrame</h3>
 
 <p align="center">
-  <a href="https://github.com/CodeByDante/LyricFrame/releases/latest/download/LyricFrame-Portable-Windows-x64.zip">
+  <a href="https://github.com/CodeByDante/LyricFrame/releases/download/v1.0.2/LyricFrame-Portable-Windows-x64.zip">
     <img src="readme-button.svg" width="280" alt="Descargar LyricFrame portátil para Windows x64">
   </a>
 </p>
 
 **LyricFrame** crea videos con letra sincronizada en **9:16** y **16:9**. Carga tu audio, marca cuándo entra cada línea o importa un archivo LRC. Puedes cambiar el fondo, la tipografía y la animación antes de exportar a MP4 con FFmpeg o HyperFrames.
 
-Para abrirlo en Windows, extrae el ZIP completo y ejecuta **Abrir LyricFrame.cmd**. [Guía de uso](README_GUIA.md)
+En Windows de 64 bits, extrae el ZIP completo y haz doble clic en **LyricFrame.exe**. El editor se abre en su propia ventana usando Edge o Chrome instalado en tu PC. [Guía de uso](README_GUIA.md)

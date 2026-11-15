@@ -4,10 +4,9 @@ Videos con letra sincronizada
 Para empezar en Windows de 64 bits
 
 1. Extrae todo el ZIP a una carpeta.
-2. Abre Abrir LyricFrame.cmd. La aplicación se abre en tu navegador.
-   Si no se abre de forma automática, copia la dirección que aparece
-   en la ventana de comandos y pégala en el navegador.
-3. Deja esa ventana abierta mientras trabajas. Ciérrala para salir de la aplicación.
+2. Haz doble clic en LyricFrame.exe. El editor se abre en su propia ventana
+   usando Microsoft Edge o Google Chrome instalado en tu PC.
+3. Cierra la ventana de LyricFrame para salir.
 
 Crear un video
 
@@ -24,8 +23,7 @@ Crear un video
    o Edge que ya tengas instalado. El tiempo de exportación depende de
    la duración del audio y de la velocidad de la PC.
 
-El programa usa únicamente archivos locales y no requiere una conexión
-a internet para convertir. Cierra la ventana de comandos cuando termines.
+El programa procesa los archivos en tu PC y puede convertirlos sin conexión.
 
 El ZIP incluye el código del proyecto y sus componentes portátiles.
 Consulta la carpeta licenses para ver los avisos de las bibliotecas.

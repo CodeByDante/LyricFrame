@@ -187,11 +187,19 @@ if (windows) {
 
 let host;
 let origin;
+const desktop = process.argv.includes("--desktop");
 server.listen(0, "127.0.0.1", () => {
   host = "127.0.0.1:" + server.address().port;
   origin = "http://" + host;
+  if (desktop) {
+    process.stdin.once("end", () => {
+      server.close();
+      server.closeAllConnections();
+    });
+    process.stdin.resume();
+  }
   console.log("LyricFrame listo. Abre " + origin);
-  if (windows && !process.argv.includes("--no-open")) {
+  if (windows && !desktop && !process.argv.includes("--no-open")) {
     const browser = spawn("rundll32.exe", ["url.dll,FileProtocolHandler", origin], { stdio: "ignore", detached: true, windowsHide: true });
     browser.on("error", () => console.log("Copia la dirección de arriba en tu navegador."));
     browser.unref();
