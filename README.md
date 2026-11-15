@@ -5,7 +5,7 @@
 <h3 align="center">LyricFrame</h3>
 
 <p align="center">
-  <a href="https://github.com/CodeByDante/LyricFrame/releases/download/v1.0.2/LyricFrame-Portable-Windows-x64.zip">
+  <a href="https://github.com/CodeByDante/LyricFrame/releases/latest/download/LyricFrame-Portable-Windows-x64.zip">
     <img src="readme-button.svg" width="280" alt="Descargar LyricFrame portátil para Windows x64">
   </a>
 </p>
