@@ -18,6 +18,7 @@ const publicFiles = {
   "/": ["web/index.html", "text/html; charset=utf-8"],
   "/app.js": ["web/app.js", "text/javascript; charset=utf-8"],
   "/styles.css": ["web/styles.css", "text/css; charset=utf-8"],
+  "/assets/lyricframe-logo.png": ["web/assets/lyricframe-logo.png", "image/png"],
   "/fonts/DejaVuSerif.ttf": ["fonts/DejaVuSerif.ttf", "font/ttf"],
   "/fonts/DejaVuSans-Bold.ttf": ["fonts/DejaVuSans-Bold.ttf", "font/ttf"],
   "/fonts/DejaVuSans.ttf": ["fonts/DejaVuSans.ttf", "font/ttf"],
